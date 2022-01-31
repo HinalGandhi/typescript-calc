@@ -1,0 +1,38 @@
+body{
+    margin: 0;
+    height: 100%;
+    font-size: 13px !important;
+}
+button{
+  width: 65px !important;
+  outline: none !important;
+  border: none !important;
+  padding: 10px;
+  font-size: 15px !important;
+  margin: 5px 1px 1px 2px;
+  box-shadow: none;
+  transition: box-shadow .5s;
+  height: 43px !important;
+  border: 1px solid #e7e6e6 !important;
+}
+input{
+    font-size: 2.8rem;
+    border: none;
+    outline: none;
+    margin: 3px 0px 7px 0px;
+    text-align: right;
+    border-radius: 5px;
+    background-color: rgb(235, 235, 235);
+    line-height: 0;
+}
+input::placeholder{
+    color: black;
+    background-color: rgb(235, 235, 235) !important;
+}
+.container{
+    background-color:rgb(235, 235, 235);
+}
+@media only screen and (min-width: 769px) {
+    /* For desktop: */
+    .container {width: 20vw;max-width:100%;vertical-align: middle;}
+  }
