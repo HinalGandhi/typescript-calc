@@ -39,38 +39,35 @@
           <div class="col" onclick="msave()">MS</div>
         </div>
         <div class="row mt-2" style="cursor: pointer">
-          <div class="col d-flex align-items-center trigo-title">
+          <div class="col d-flex align-items-center trigo-title dropdown dropdown-toggle" type="button"
+            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-ruler-combined" style="padding: 6px"></i>
             <p class="my-0">Trigonometry</p>
-            <i class="fa fa-angle-down down1" style="padding: 6px"></i>
-            <i class="fa fa-angle-up" style="padding: 6px; display: none"></i>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a onclick="sin()" class="dropdown-item">sin</a>
+              <a onclick="cos()" class="dropdown-item">cos</a>
+              <a onclick="tan()" class="dropdown-item">tan</a>
+            </div>
           </div>
-          <div class="col d-flex align-items-center function-title" style="cursor: pointer">
-            <p class="my-0 p-2">ƒ</p>
-            <p class="my-0">Function</p>
-            <i class="fa fa-angle-down down" style="padding: 6px"></i>
-            <i class="fa fa-angle-up up" style="padding: 6px; display: none"></i>
+          <div class="col dropdown">
+            <div class="col d-flex align-items-center function-title dropdown-toggle" type="button" id="dropdownMenu2"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor: pointer">
+              <p class="my-0 p-2">ƒ</p>
+              <p class="my-0">Function</p>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <a class="dropdown-item" onclick="floor()">Floor</a>
+                <a class="dropdown-item" onclick="ceil()">Ceil</a>
+                <a class="dropdown-item" onclick="random()">Random</a>
+              </div>
+            </div>
           </div>
-          <div class="col"></div>
-        </div>
-        <div class="row trigo-functions" style="display: none">
-          <button class="col btn " >sin</button>
-          <button class="col btn ">cos</button>
-          <button class="col btn ">tan</button>
-        </div>
-        <div class="row functions" style="display: none">
-          <button class="col btn ">Floor</button>
-          <button class="col btn ">Ceil</button>
-          <button class="col btn ">Random</button>
         </div>
         <div class="row">
           <button class="col btn " style="background-color: #f1f1f16b;">2<sup>nd</sup></button>
           <button class="col btn " style="background-color: #f1f1f16b;">π</button>
           <button class="col btn " style="background-color: #f1f1f16b;">e</button>
           <button class="col btn " style="background-color: #f1f1f16b;">C</button>
-          <button class="col btn " style="background-color: #f1f1f16b;">
-            <i class="fa fa-backspace"></i>
-          </button>
+          <button class="col btn " style="background-color: #f1f1f16b;">⌫</button>
         </div>
         <div class="row">
           <button class="col btn " style="background-color: #f1f1f16b;">x<sup>2</sup></button>
@@ -80,9 +77,7 @@
           <button class="col btn " style="background-color: #f1f1f16b;">mod</button>
         </div>
         <div class="row">
-          <button class="col btn " style="background-color: #f1f1f16b;">
-            <i class="fa fa-square-root-alt"></i>
-          </button>
+          <button class="col btn " style="background-color: #f1f1f16b;"> √</button>
           <button class="col btn " style="background-color: #f1f1f16b;">(</button>
           <button class="col btn " style="background-color: #f1f1f16b;">)</button>
           <button class="col btn " style="background-color: #f1f1f16b;">n!</button>
@@ -117,12 +112,19 @@
           <button class="col btn btn-primary">=</button>
         </div>
       </div>
+
     </div>
   </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="./index.js"></script>
 </body>
 
 </html>

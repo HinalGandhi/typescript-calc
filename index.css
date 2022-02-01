@@ -3,6 +3,9 @@ body{
     height: 100%;
     font-size: 13px !important;
 }
+.dropdown-menu {
+    font-size: 13px !important;
+}
 button{
   width: 65px !important;
   outline: none !important;
@@ -25,6 +28,7 @@ input{
     background-color: rgb(235, 235, 235);
     line-height: 0;
 }
+
 input::placeholder{
     color: black;
     background-color: rgb(235, 235, 235) !important;
