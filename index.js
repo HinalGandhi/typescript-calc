@@ -9,8 +9,11 @@ Array.prototype.forEach.call(buttons, function (button) {
             button.textContent != "1/x" &&
             button.textContent !=
                 '√' &&
+            button.textContent !=
+                '3√' &&
             button.textContent != "x2" &&
-            button.textContent != "2nd" &&
+            button.textContent != "2n" &&
+            button.textContent != "x3" &&
             button.textContent != "10x" &&
             button.textContent != "%" &&
             button.textContent != "|x|" &&
@@ -24,7 +27,8 @@ Array.prototype.forEach.call(buttons, function (button) {
             button.textContent != "xy" &&
             button.textContent != "n!" &&
             button.textContent != "π" &&
-            button.textContent != "exp") {
+            button.textContent != "exp" &&
+            button.textContent != "2nd") {
             display.value += button.textContent;
         }
         else if (button.textContent === "=") {
@@ -33,7 +37,7 @@ Array.prototype.forEach.call(buttons, function (button) {
         else if (button.textContent === "C") {
             clear();
         }
-        else if (button.textContent === "2nd") {
+        else if (button.textContent === "2n") {
             power();
         }
         else if (button.textContent === "10x") {
@@ -66,9 +70,16 @@ Array.prototype.forEach.call(buttons, function (button) {
         else if (button.textContent === "x2") {
             square();
         }
+        else if (button.textContent === "x3") {
+            cube();
+        }
         else if (button.textContent ===
             '√') {
             squareRoot();
+        }
+        else if (button.textContent ===
+            '3√') {
+            cuberoot();
         }
         else if (button.textContent === "e") {
             eulersNum();
@@ -93,16 +104,6 @@ Array.prototype.forEach.call(buttons, function (button) {
         }
     });
 });
-function checkLength() {
-    if (display.value.length >= 13) {
-        display.value = "Overload Error";
-    }
-}
-function syntaxError() {
-    if (eval(display.value) == SyntaxError) {
-        display.value = "Syntax Error";
-    }
-}
 function equals() {
     if (display.value.indexOf("^") > -1) {
         var base = display.value.slice(0, display.value.indexOf("^"));
@@ -113,9 +114,13 @@ function equals() {
         clear();
     }
     else {
-        display.value = eval(display.value);
-        checkLength();
-        syntaxError();
+        try {
+            var x = eval(display.value);
+            display.value = eval(x);
+        }
+        catch (_a) {
+            display.value = "Syntax error!";
+        }
     }
 }
 function clear() {
@@ -152,8 +157,14 @@ function pi() {
 function square() {
     display.value = String(Math.pow(Number(display.value), 2));
 }
+function cube() {
+    display.value = String(Math.pow(Number(display.value), 3));
+}
 function squareRoot() {
     display.value = String(Math.sqrt(Number(display.value)));
+}
+function cuberoot() {
+    display.value = String(Math.cbrt(Number(display.value)));
 }
 function percent() {
     display.value = String(Number(display.value) / 100);
@@ -168,13 +179,12 @@ function tan() {
     display.value = String(Math.tan(Number(display.value)));
 }
 function log() {
-    display.value = String(Math.pow(10, Number(display.value)));
+    display.value = String(Math.LOG10E);
 }
 function ln() {
     display.value = String(Math.log(Number(display.value)));
 }
 function exponent() {
-    display.value = String(Math.pow(Number(display.value), 2));
     display.value += "^";
 }
 function exp() {
@@ -273,3 +283,13 @@ function msave() {
         memory.push(parseInt(display.value));
     }
 }
+var btnswap = function () {
+    if ($(".sqaure").is(":visible")) {
+        $('.sqaure').css('display', "none");
+        $('.cube').css('display', 'block');
+    }
+    else {
+        $('.sqaure').css('display', "block");
+        $('.cube').css('display', 'none');
+    }
+};
