@@ -217,7 +217,7 @@ function floor(): void {
   display.value = String(Math.floor(Number(display.value)));
 }
 function random(): void {
-  display.value = String(Math.random());
+  display.value = String((Math.random() * 10).toFixed(5));
 }
 function exponential(): void {
   let num = parseFloat(display.value);
