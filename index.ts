@@ -50,7 +50,7 @@ Array.prototype.forEach.call(buttons, function (button: input) {
       power10();
     } else if (button.textContent === "x") {
       multiply();
-    }else if (button.textContent === "+") {
+    } else if (button.textContent === "+") {
       add();
     } else if (button.textContent === "-") {
       minus();
@@ -134,7 +134,7 @@ const checkValid = (val: string, eve: string) => {
       last_char === "+" ||
       last_char === "-" ||
       last_char === "/" ||
-      last_char === "*" 
+      last_char === "*"
     ) {
       let addop = cur_Value.substring(0, cur_Value.length - 1) + eve;
       display.value = addop;
@@ -145,25 +145,22 @@ const checkValid = (val: string, eve: string) => {
     return isvalid;
   }
 };
-
-function multiply() {
+function multiply(): void {
   if (checkValid(display.value, "*")) {
     display.value += "*";
   }
 }
-
-function divide() {
+function divide(): void {
   if (checkValid(display.value, "/")) {
     display.value += "/";
   }
 }
-
-function add() {
+function add(): void {
   if (checkValid(display.value, "+")) {
     display.value += "+";
   }
 }
-function minus() {
+function minus(): void {
   if (checkValid(display.value, "-") === true) {
     display.value += "-";
   }
