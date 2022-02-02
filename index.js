@@ -4,6 +4,8 @@ Array.prototype.forEach.call(buttons, function (button) {
     button.addEventListener("click", function () {
         if (button.textContent != "=" &&
             button.textContent != "C" &&
+            button.textContent != "+" &&
+            button.textContent != "-" &&
             button.textContent != "x" &&
             button.textContent != "÷" &&
             button.textContent != "1/x" &&
@@ -45,6 +47,12 @@ Array.prototype.forEach.call(buttons, function (button) {
         }
         else if (button.textContent === "x") {
             multiply();
+        }
+        else if (button.textContent === "+") {
+            add();
+        }
+        else if (button.textContent === "-") {
+            minus();
         }
         else if (button.textContent === "|x|") {
             absolute();
@@ -129,11 +137,44 @@ function clear() {
 function backspace() {
     display.value = display.value.substring(0, display.value.length - 1);
 }
+var checkValid = function (val, eve) {
+    var isvalid;
+    var cur_Value = display.value;
+    var last_char = cur_Value[cur_Value.length - 1];
+    if (display.value !== "0" && display.value !== "") {
+        if (last_char === "+" ||
+            last_char === "-" ||
+            last_char === "/" ||
+            last_char === "*") {
+            var addop = cur_Value.substring(0, cur_Value.length - 1) + eve;
+            display.value = addop;
+            isvalid = false;
+        }
+        else {
+            isvalid = true;
+        }
+        return isvalid;
+    }
+};
 function multiply() {
-    display.value = display.value + "*";
+    if (checkValid(display.value, "*")) {
+        display.value += "*";
+    }
 }
 function divide() {
-    display.value = display.value + "/";
+    if (checkValid(display.value, "/")) {
+        display.value += "/";
+    }
+}
+function add() {
+    if (checkValid(display.value, "+")) {
+        display.value += "+";
+    }
+}
+function minus() {
+    if (checkValid(display.value, "-") === true) {
+        display.value += "-";
+    }
 }
 function plusMinus() {
     if (display.value.charAt(0) === "-") {

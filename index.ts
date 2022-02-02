@@ -11,6 +11,8 @@ Array.prototype.forEach.call(buttons, function (button: input) {
     if (
       button.textContent != "=" &&
       button.textContent != "C" &&
+      button.textContent != "+" &&
+      button.textContent != "-" &&
       button.textContent != "x" &&
       button.textContent != "÷" &&
       button.textContent != "1/x" &&
@@ -48,6 +50,10 @@ Array.prototype.forEach.call(buttons, function (button: input) {
       power10();
     } else if (button.textContent === "x") {
       multiply();
+    }else if (button.textContent === "+") {
+      add();
+    } else if (button.textContent === "-") {
+      minus();
     } else if (button.textContent === "|x|") {
       absolute();
     } else if (button.textContent === "÷") {
@@ -119,11 +125,48 @@ function clear(): void {
 function backspace(): void {
   display.value = display.value.substring(0, display.value.length - 1);
 }
-function multiply(): void {
-  display.value = display.value + "*";
+const checkValid = (val: string, eve: string) => {
+  let isvalid: boolean;
+  let cur_Value = display.value;
+  let last_char: string = cur_Value[cur_Value.length - 1];
+  if (display.value !== "0" && display.value !== "") {
+    if (
+      last_char === "+" ||
+      last_char === "-" ||
+      last_char === "/" ||
+      last_char === "*" 
+    ) {
+      let addop = cur_Value.substring(0, cur_Value.length - 1) + eve;
+      display.value = addop;
+      isvalid = false;
+    } else {
+      isvalid = true;
+    }
+    return isvalid;
+  }
+};
+
+function multiply() {
+  if (checkValid(display.value, "*")) {
+    display.value += "*";
+  }
 }
-function divide(): void {
-  display.value = display.value + "/";
+
+function divide() {
+  if (checkValid(display.value, "/")) {
+    display.value += "/";
+  }
+}
+
+function add() {
+  if (checkValid(display.value, "+")) {
+    display.value += "+";
+  }
+}
+function minus() {
+  if (checkValid(display.value, "-") === true) {
+    display.value += "-";
+  }
 }
 function plusMinus(): void {
   if (display.value.charAt(0) === "-") {
