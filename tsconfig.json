@@ -1,0 +1,7 @@
+  {
+    "compilerOptions": {
+        "outDir": "./lib/index.js",
+        "allowJs": true,
+        "target": "ES6"
+    }
+}

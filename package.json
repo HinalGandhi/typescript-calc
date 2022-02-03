@@ -1,0 +1,29 @@
+{
+  "name": "tsassign",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "maths.ts": "^0.0.8"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.13",
+    "@types/node": "^17.0.13"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HinalGandhi/typescript-calc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HinalGandhi/typescript-calc/issues"
+  },
+  "homepage": "https://github.com/HinalGandhi/typescript-calc#readme"
+}
